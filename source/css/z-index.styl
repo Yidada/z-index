@@ -1,0 +1,47 @@
+@import 'nib';
+global-reset()
+	
+.loading
+	z-index 2
+	position absolute
+	left 0
+	top 0
+	width 100%
+	height 100%
+	background-color #000
+	.content
+		position absolute
+		width 500px
+		height 400px
+		left 50%
+		top 50%
+		transform translate(-50%,-50%)
+		
+@keyframes shapeColor
+	0% 
+		background-color darken(red, 16%);
+	50% 
+		background-color darken(red, 0%); 
+	100%
+		background-color darken(red, 16%);
+		
+.shape-contain
+	position absolute
+	top 50%
+	left 50%
+	width 200px
+	height 200px
+	for row in (1..30)
+		&:nth-child({row})
+			transform translate(-50%,-50%) rotate(row*12 deg) 
+			.shape
+				width 100%
+				height 100%
+				background-color darken(red, row*2%+16%);
+				-webkit-clip-path polygon(0 10.2%, 50% 50%, 10.2% 0%)
+				// animation shapeColor .5s row*.5s infinite
+				 
+				
+
+
+

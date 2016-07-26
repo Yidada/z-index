@@ -1,0 +1,60 @@
+
+<%
+var pageTitle = page.title || config.subtitle || '';
+if (is_archive()) pageTitle = 'Archives';
+if (is_tag()) pageTitle = 'Tag: ' + page.tag;
+if (is_category()) pageTitle = 'Category: ' + page.category;
+if (is_month()) pageTitle += ': ' + page.month + '/' + page.year;
+if (is_year()) pageTitle += ': ' + page.year;
+pageTitle += config.title;
+%>
+
+<!DOCTYPE html>
+<html lang="<%=config.language%>">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title><%=pageTitle%></title>
+  <meta http-equiv="description" content="张达铭-Z-INDEX" />
+  <meta name="description" content="张达铭的个人博客，张达铭的技术作品，张达铭的生活成长" />
+  <meta name="keywords" content="张达铭,张益达,个人博客, 个人网站, web前端,JavaScript,css,html" />
+  <meta name="author" content="张达铭,张益达,zhangdaming,zhangyida" />
+
+
+  <!-- css -->
+  <% if (theme.stylesheets !== undefined && theme.stylesheets.length > 0) { %>
+    <!-- stylesheets list from config.yml -->
+    <% theme.stylesheets.forEach(function(url) { %>
+      <link rel="stylesheet" href="<%=url%>">
+    <% }); %>
+  <% } %>
+</head>
+<body>
+<!-- header -->
+<%-partial('partials/header')%>
+
+
+
+<!-- content -->
+<article id="content-outer">
+  <div id="content-inner">
+    <%- body %>
+  </div>
+</article>
+
+
+<!-- footer -->
+<%-partial('partials/footer')%>
+
+
+<!-- js -->
+<% if (theme.scripts !== undefined && theme.scripts.length > 0) { %>
+  <!-- scripts list from theme config.yml -->
+  <% theme.scripts.forEach(function(url) { %>
+    <script src="<%=url%>"></script>
+  <% }); %>
+<% } %>
+
+</body>
+</html>
