@@ -13,3 +13,6 @@ you can wait or compatible by yourself.
 5. hexo s
 6. get it.
 
+## TO DO LIST
+1. adapt firefox|IE9
+2. adapt mobile terminal

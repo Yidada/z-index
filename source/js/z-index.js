@@ -7,6 +7,27 @@
             return null;
     };
 
+    if (window.location.pathname == '/') {
+        var userAgent = navigator.userAgent;
+        if (userAgent.indexOf("AppleWebKit") < 0) {
+            swal({
+                title: "暂时还不支持非webkit内核的浏览器哦",
+                text: "想看到完整的效果请用chrome或者safari吧,\n如果您一再坚持,下面的画面可能惨不忍睹。",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#E70000",
+                confirmButtonText: "爷就是这么任性!",
+                cancelButtonText: "呵呵",
+                closeOnConfirm: true
+            },function (isConfirm) {
+                if(isConfirm){
+
+                }else{
+                    window.location.href='/archives'
+                }
+            })
+        }
+    }
 
     // loading control
     var loaded = getCookie("loaded");

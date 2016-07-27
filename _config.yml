@@ -17,4 +17,7 @@ stylesheets:
 # scripts loaded in the end of the body
 scripts:
 - /js/zepto.js
+- /js/sweetalert.min.js
 - /js/z-index.js
+
+
