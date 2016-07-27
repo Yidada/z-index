@@ -4,3 +4,12 @@
 
 <%-partial('partials/recent-posts')%>
 <%-partial('partials/pagination')%>
+<script>
+    var userAgent = navigator.userAgent;
+    if (userAgent.indexOf("AppleWebKit") < 0) {
+        var c = confirm("=,=暂时还不支持非webkit内核的浏览器哦,想看到完整的效果请用chrome或者safari吧。如果您一再坚持,下面的画面可能惨不忍睹。")
+        if (!c) {
+            window.location.href="/archives/"
+        }
+    }
+</script>
