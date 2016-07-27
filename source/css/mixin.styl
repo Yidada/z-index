@@ -1,2 +1,25 @@
-fun-rotate(row)
-	return rotate((row-1)*3 deg) translate(-50%,-50%)
+fun-shapeColor(row)
+  @keyframes shapeColor
+    0%
+      background-color darken(red, row * 2% + 5%);
+    50%
+      background-color darken(red, row * 3% + 5%);
+    100%
+      background-color darken(red, row * 2% + 5%);
+  animation shapeColor 3s row * .1s infinite linear
+
+fun-container()
+  display block
+  width 1200px
+  margin 0 auto
+  clearfix()
+
+none()
+  display none
+
+all()
+  position absolute
+  width 100%
+  height 100%
+  left 0
+  top 0

@@ -4,10 +4,8 @@ language: en
 
 # main menu navigation
 menu:
-  Home: /
-  About: /about
-  Contact: /contact
-  Archives: /archives
+  首页: /
+  归档: /archives
 
 # Miscelaneous
 favicon: /favicon.ico
@@ -18,5 +16,5 @@ stylesheets:
 
 # scripts loaded in the end of the body
 scripts:
-- /js/z-index.js
 - /js/zepto.js
+- /js/z-index.js

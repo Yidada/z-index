@@ -1,15 +1,46 @@
 <% if (site.posts.length > 0) { %>
-  <section id="recent-posts">
-    <h1>Recent Posts</h1>
-    <% site.posts.sort('date', -1).limit(10).each(function(post) { %>
-      <div class="recent-post-item">
-        <a href="<%=config.root + post.path%>"><%=post.title%></a>
-        <% if (post.date) { %>
-          <time datetime="<%=post.date.toJSON()%>">
-            <%=date(post.date)%>
-          </time>
-        <% } %>
-      </div>
+<section id="recent-posts">
+    <% site.posts.sort('date', -1).each(function(post,index) { %>
+    <div class="recent-post-item">
+        <div class="recent-post-parm">
+            <h2>
+                第
+                <%=index+1%>
+                篇
+            </h2>
+            <a href="<%=config.root + post.path%>"><%=post.title%></a>
+            <% if (post.date) { %>
+            <time datetime="<%=post.date.toJSON()%>">
+                <%=date(post.date)%>
+            </time>
+            <% } %>
+        </div>
+    </div>
     <% }); %>
-  </section>
+    <div class="border">
+        <div class="frames">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="post-pagin">
+        <ul>
+            <li class="pre-post">
+                <a href="javascript:void(0)">
+                    <i class="iconfont">&#xe602;</i>
+                </a>
+            </li>
+            <li id="cur-post">
+                1/<%=site.posts.length%>
+            </li>
+            <li class="next-post">
+                <a href="javascript:void(0)">
+                    <i class="iconfont">&#xe601;</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
 <% } %>
