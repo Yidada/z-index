@@ -6,10 +6,10 @@
         else
             return null;
     };
-
+    var userAgent = navigator.userAgent;
+    isWebkit = userAgent.indexOf("AppleWebKit") > 0;
     if (window.location.pathname == '/') {
-        var userAgent = navigator.userAgent;
-        if (userAgent.indexOf("AppleWebKit") < 0) {
+        if (!isWebkit) {
             swal({
                 title: "暂时还不支持非webkit内核的浏览器哦",
                 text: "想看到完整的效果请用chrome或者safari吧,\n如果您一再坚持,下面的画面可能惨不忍睹。",
@@ -19,16 +19,21 @@
                 confirmButtonText: "爷就是这么任性!",
                 cancelButtonText: "呵呵",
                 closeOnConfirm: true
-            },function (isConfirm) {
-                if(isConfirm){
+            }, function (isConfirm) {
+                if (isConfirm) {
 
-                }else{
-                    window.location.href='/archives'
+                } else {
+                    window.location.href = '/archives'
                 }
             })
         }
     }
-
+    // if the browser isn't webkit
+    if (!isWebkit) {
+        $('.recent-post-parm a').addClass('pure');
+        $('.content').addClass('pure');
+        $('.shape-contain').hide();
+    }
     // loading control
     var loaded = getCookie("loaded");
     if (!loaded) {

@@ -57,6 +57,17 @@ body
   to
     opacity 1
 
+@keyframes pureLoading
+  0%
+    transform rotate(0deg)
+    transform-origin 50% 50%
+  50%
+    transform rotate(180deg)
+    transform-origin 50% 50%
+  100%
+    transform rotate(360deg)
+    transform-origin 50% 50%
+
 .loading
   //none()
   position fixed
@@ -74,6 +85,10 @@ body
     left 50%
     top 50%
     transform translate(-50%, -50%)
+    &.pure
+      background url("../img/circle.png") no-repeat
+      background-size contain
+      //animation pureLoading .5s infinite linear
   h1
     position absolute
     top 50%
@@ -184,6 +199,10 @@ body
       background-clip text
       -webkit-text-fill-color transparent
       animation scratchy 0.253s linear forwards infinite
+      &.pure
+        background none
+        -webkit-text-fill-color none
+        background-clip none
     time
       font-size 15px
 
